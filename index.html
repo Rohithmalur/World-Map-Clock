@@ -30,15 +30,15 @@
   .world-map-img {
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
+    object-fit: fill;
     border-radius: 0;
     box-shadow: none;
     display: block;
   }
   .clock-marker {
     position: absolute;
-    background: rgba(249, 5, 5, 0.7);
-    color: #100f0f;
+    background: rgb(250, 248, 248);
+    color: #fb0404;
     padding: 6px 10px;
     border-radius: 8px;
     font-size: 1.5vw;
@@ -50,29 +50,41 @@
     z-index: 2;
   }
   /* Adjust these percentages for marker positions on the new full-screen map */
-  #marker-aus { left: 75%; top: 85%; }
-  #marker-japan { left: 78%; top: 38%; }
-  #marker-china { left: 65%; top: 45%; }
-  #marker-vietnam { left: 70%; top: 65%; }
-  #marker-india { left: 64%; top: 57%; }
-  #marker-france { left: 45%; top: 35%; }
-  #marker-USA { left: 20%; top: 40%; }
+  #marker-aus { left: 70%; top: 85%; }
+  #marker-japan { left: 68%; top: 43%; }
+  #marker-china { left: 55%; top: 40%; }
+  #marker-vietnam { left: 56%; top: 55%; }
+  #marker-india { left: 42%; top: 50%; }
+  #marker-france { left: 5%; top: 25%; }
+  #marker-singapore { left: 55%; top: 70%; }
 </style>
 
 </head>
 <body>
 <h1>WORLD CLOCK</h1>
+<!--
+<div class="map-container">
+  <img src="C:\Users\rohith.kumar.GEOAD\OneDrive - GEODIS\BI_Reports\New Image.jpg" alt="World Map" class="world-map-img">
+  <div class="clock-marker" id="marker-aus"><span>🇦🇺 AU <span id="australia-clock">--:--:--</span></span></div>
+  <div class="clock-marker" id="marker-japan"><span>🇯🇵 JP/KR <span id="japan-clock">--:--:--</span></span></div>
+  <div class="clock-marker" id="marker-china"><span>🇨🇳 CN <span id="china-clock">--:--:--</span></span></div>
+  <div class="clock-marker" id="marker-vietnam"><span>🇻🇳 VN <span id="vietnam-clock">--:--:--</span></span></div>
+  <div class="clock-marker" id="marker-india"><span>🇮🇳 IN <span id="India-clock">--:--:--</span></span></div>
+  <div class="clock-marker" id="marker-france"><span>🇫🇷 FR <span id="france-clock">--:--:--</span></span></div>
+  <div class="clock-marker" id="marker-USA"><span>🇺🇸 USA <span id="usa-clock">--:--:--</span></span></div>
+-->
 
 <div class="map-container">
-  <img src="New Image.jpg" alt="World Map" class="world-map-img">
+  <img src="APAC_EMEA_Map.png" alt="World Map" class="world-map-img">
   <div class="clock-marker" id="marker-aus"><span>AU <span id="australia-clock">--:--:--</span></span></div>
   <div class="clock-marker" id="marker-japan"><span>JP/KR <span id="japan-clock">--:--:--</span></span></div>
   <div class="clock-marker" id="marker-china"><span>CN <span id="china-clock">--:--:--</span></span></div>
   <div class="clock-marker" id="marker-vietnam"><span>VN <span id="vietnam-clock">--:--:--</span></span></div>
   <div class="clock-marker" id="marker-india"><span>IN <span id="India-clock">--:--:--</span></span></div>
   <div class="clock-marker" id="marker-france"><span>FR <span id="france-clock">--:--:--</span></span></div>
-  <div class="clock-marker" id="marker-USA"><span>USA <span id="usa-clock">--:--:--</span></span></div>
+  <div class="clock-marker" id="marker-singapore"><span>SG <span id="singapore-clock">--:--:--</span></span></div>
 </div>
+
 
 <script>
   function formatTime24(date) {
@@ -92,14 +104,14 @@
     const chinaTime = offsetTime(2.5);
     const ausTime = offsetTime(4.5);
     const japanTime = offsetTime(3.5);
-    const usaTime = offsetTime(-9.5);
+    const singaporeTime = offsetTime(2.5);
     document.getElementById("India-clock").innerText = formatTime24(istTime); // India time
     document.getElementById("france-clock").innerText = formatTime24(cetTime); // france time
     document.getElementById("vietnam-clock").innerText = formatTime24(vietnamTime); // vietnam time
     document.getElementById("china-clock").innerText = formatTime24(chinaTime); // China & Singapore time
     document.getElementById("australia-clock").innerText = formatTime24(ausTime); // Australia time
     document.getElementById("japan-clock").innerText = formatTime24(japanTime); //Japan & South Korea 
-    document.getElementById("usa-clock").innerText = formatTime24(offsetTime(-9.5)); // USA time
+    document.getElementById("singapore-clock").innerText = formatTime24(singaporeTime); // Singapore time
   }
   setInterval(updateClocks, 1000);
   updateClocks();
